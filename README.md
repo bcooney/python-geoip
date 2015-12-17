@@ -10,6 +10,6 @@ As recommended by Flask, this works well in a virtual environment.
 
 To-Do:
 
-- [] CSV import (date + time + IP)
-- [] Batch geolocation
-- [] CSV export (date + time + IP + location)
+- CSV import (date + time + IP)
+- Batch geolocation
+- CSV export (date + time + IP + location)
