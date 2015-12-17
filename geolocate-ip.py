@@ -3,7 +3,7 @@ import pygeoip
 
 app = Flask(__name__)
 
-# Make sure this points to your downloaded file
+# This points to location of MaxMind geo dat
 gi = pygeoip.GeoIP('GeoLiteCity.dat', pygeoip.MEMORY_CACHE)
 
 @app.route('/')
@@ -21,9 +21,6 @@ def domain(domain_name):
     geo_data = gi.record_by_name(domain_name)
     return jsonify(geo_data)
 
-# In general catching all 500 errors like this could be considered bad practice
-# But with an app which only serves single function like ours
-# It's a neat way to follow the DRY principal because all errors are the same
 @app.errorhandler(500)
 def error_500(e):
     return jsonify({'error': 'Error finding GeoIP data for that address'})
